@@ -29,3 +29,45 @@ print_x(100)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+df<-data.frame(
+  labels = c("Eve", "Cain", "Seth", "Enos", "Noam", "Abel", "Awan", "Enoch", "Azura"),
+  parents = c("", "Eve", "Eve", "Seth", "Seth", "Eve", "Eve", "Awan", "Eve"),
+  values = c(42, 14, 12, 10, 2, 6, 6, 4, 4)
+)
+
+
+
+fig <- plot_ly(
+  labels = df$labels,
+  parents = df$parents,
+  values = df$values,
+  type = 'sunburst',
+  branchvalues = 'total'
+)
+
+fig
+
+
+
+

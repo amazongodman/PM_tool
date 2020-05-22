@@ -21,8 +21,13 @@ fig <- fig %>% add_trace(data, x = ~x, y = ~random_y, type = 'scatter', mode = '
 
 fig
 
-source( "C:\\Users\\ringa\\Desktop\\UI\\func\\fun.r" )
 
+
+
+
+
+
+source( "C:\\Users\\ringa\\Desktop\\UI\\func\\fun.r" )
 
 print_x(100)
 
@@ -50,6 +55,19 @@ print_x(100)
 
 
 
+
+
+
+
+
+
+
+
+
+##############
+###円グラフ割合
+##############
+
 df<-data.frame(
   labels = c("Eve", "Cain", "Seth", "Enos", "Noam", "Abel", "Awan", "Enoch", "Azura"),
   parents = c("", "Eve", "Eve", "Seth", "Seth", "Eve", "Eve", "Awan", "Eve"),
@@ -70,4 +88,38 @@ fig
 
 
 
+
+
+
+
+
+
+#線の下塗りつぶし
+# fill="tonexty", でつぶす
+
+
+elw <- structure(list(year = 1975:1979, x10006 = c(0L, 0L, 0L, 0L, 0L),
+   x12018 = c(285.4309, 265.1403, 369.1682, 604.1203, 587.2926
+), x19000 = c(26.48335, 36.45504, 37.28563, 126.8903, 182.8447
+), x20000 = c(229.9651, 369.8476, 496.058, 504.2717, 445.3687
+), x99999 = c(1707.498, 2223.986, 2599.086, 2661.213, 3207.065
+)), .Names = c("year", "x10006", "x12018", "x19000", "x20000", 
+"x99999"), row.names = c(NA, -5L), class = "data.frame") 
+
+elw_stack <- structure(list(year = 1975:1979, x10006 = c(0L, 0L, 0L, 0L, 0L), 
+    x12018 = c(285L, 265L, 369L, 604L, 587L), 
+    x19000 = c(312L, 302L, 406L, 731L, 770L), 
+    x20000 = c(542L, 671L, 903L, 1235L, 1216L), 
+    x99999 = c(2249L, 2895L, 3502L, 3896L, 4423L)), 
+    .Names = c("year", "x10006", "x12018", "x19000", "x20000", "x99999"), 
+    row.names = c(NA, -5L), class = "data.frame")
+
+
+library(plotly)
+
+plot_ly(data = elw_stack, x = ~year, y = ~x19000,  type = 'bar') %>%
+  add_trace(y=~x12018, mode="lines", 
+fill="tonexty",
+type = "scatter", 
+name="x12018") 
 

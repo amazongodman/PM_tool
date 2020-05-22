@@ -53,6 +53,8 @@ tabPanel("1ページ目のタイトル",
     mainPanel(
               textOutput("text1"),
               tableOutput("table1"), #テーブルを表示させたい。各項目にカンマ必要
+tags$head(tags$style("#table1 table {background-color: #996600; }", media="screen", type="text/css")),
+
 
               plotOutput("plot2") #ページに表示させたいものがplotである。　最後なのでカンマ不要
             ) #mainpanelの終わりカンマ不要
